@@ -6,14 +6,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.mem89</groupId>
-  <artifactId>maven-dependency-generalizer-plugin</artifactId>
+  <artifactId>dependency-generalizer-maven-plugin</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>maven-dependency-generalizer-plugin Maven Plugin</name>
 
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://maven.mem89.de/maven-dependency-generalizer-plugin/</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/mem89de/dependency-generalizer-maven-plugin</url>
+    <connection>scm:git:git://github.com/mem89de/dependency-generalizer-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com/mem89de/dependency-generalizer-maven-plugin.git</developerConnection>
+  </scm>
 
   <prerequisites>
     <maven>${maven.version}</maven>
@@ -24,9 +37,27 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <maven.version>3.3.9</maven.version>
+    <jgrapht.version>1.5.1</jgrapht.version>
+    <lombok.version>1.18.26</lombok.version>
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.jgrapht</groupId>
+      <artifactId>jgrapht-core</artifactId>
+      <version>${jgrapht.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jgrapht</groupId>
+      <artifactId>jgrapht-io</artifactId>
+      <version>${jgrapht.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-plugin-api</artifactId>
@@ -111,6 +142,14 @@
           <artifactId>maven-invoker-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>4.0.0-M5</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -136,6 +175,22 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
