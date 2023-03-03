@@ -1,0 +1,1 @@
+# maven-depencency-generalizer-plugin
