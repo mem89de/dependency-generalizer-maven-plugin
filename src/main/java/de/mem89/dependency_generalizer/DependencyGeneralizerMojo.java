@@ -57,6 +57,7 @@ public class DependencyGeneralizerMojo extends AbstractMojo {
         }
         if (outputFile != null) {
             try {
+                getLog().info(String.format("Writing dot represenation to %s", outputFile.getAbsolutePath()));
                 exporter.export(mavenReactorGraph, outputFile);
             } catch (IOException e) {
                 getLog().error("Could not write to file", e);
