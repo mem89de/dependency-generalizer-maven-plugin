@@ -1,5 +1,6 @@
-package de.mem89.maven.plugin.dependency_generalizer;
+package de.mem89.dependency_generalizer;
 
+import de.mem89.dependency_generalizer.edges.MavenReactorEdge;
 import org.apache.maven.project.MavenProject;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
